@@ -149,12 +149,12 @@ class MainActivity : ComponentActivity() {
 
     private fun safeOpenBrowser(url: String) {
         try {
-            val intent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
-            if (intent.resolveActivity(packageManager) != null) {
-                startActivity(intent)
-            } else {
-                Toast.makeText(this, "No browser app found", Toast.LENGTH_SHORT).show()
+            val intent = Intent(Intent.ACTION_VIEW, Uri.parse(url)).apply {
+                flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_REQUIRE_DEFAULT
             }
+            startActivity(Intent.createChooser(intent, "Open with").apply {
+                flags = Intent.FLAG_ACTIVITY_NEW_TASK
+            })
         } catch (e: Exception) {
             Logger.e("Error opening browser", e)
             Toast.makeText(this, "Cannot open URL", Toast.LENGTH_SHORT).show()
