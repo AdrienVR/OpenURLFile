@@ -116,6 +116,11 @@ class MainActivity : ComponentActivity() {
         val uri = intent?.data
         if (uri == null) return
 
+        Logger.d("Full URI: $uri")
+        Logger.d("Scheme: ${uri.scheme}")
+        Logger.d("Authority: ${uri.authority}")
+        Logger.d("Path: ${uri.path}")
+
         try {
             val result = repository.extractUrl(uri)
             extractedUrl = result.fold(

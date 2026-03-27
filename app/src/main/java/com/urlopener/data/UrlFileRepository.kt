@@ -15,15 +15,20 @@ class UrlFileRepository(private val context: Context) {
             return Result.failure(InvalidUriException("Invalid URI: missing scheme"))
         }
 
-        if (uri.authority == null && uri.scheme != "http" && uri.scheme != "https") {
-            Logger.d("Content URI detected, attempting to read file")
-            return readFromContentUri(uri)
-        }
-
         if (uri.scheme == "http" || uri.scheme == "https") {
             val url = uri.toString()
             Logger.d("Direct URL received: $url")
             return Result.success(url)
+        }
+
+        if (uri.scheme == "content") {
+            Logger.d("Content URI detected (authority: ${uri.authority}), attempting to read file")
+            return readFromContentUri(uri)
+        }
+
+        if (uri.scheme == "file") {
+            Logger.d("File URI detected, attempting to read file")
+            return readFromContentUri(uri)
         }
 
         Logger.e("Unsupported URI scheme: ${uri.scheme}")

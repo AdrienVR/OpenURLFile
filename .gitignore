@@ -18,3 +18,5 @@
 *.swp
 *~.nib
 local.properties
+/android-sdk
+/app/build
