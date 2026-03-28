@@ -5,13 +5,13 @@ plugins {
 
 android {
     namespace = "com.urlopener"
-    compileSdk = 34
+        compileSdk = 35
 
     defaultConfig {
-        applicationId = "com.openurlfile"
+        applicationId = "com.vernotte.openurlfile"
         minSdk = 24
-        targetSdk = 34
-        versionCode = 1
+        targetSdk = 35
+        versionCode = 2
         versionName = "1.0.0"
 
         vectorDrawables {
@@ -50,6 +50,13 @@ android {
         resources {
             excludes += "/META-INF/{AL2.0,LGPL2.1}"
         }
+    }
+}
+
+android.applicationVariants.all {
+    outputs.all {
+        val output = this as com.android.build.gradle.internal.api.BaseVariantOutputImpl
+        output.outputFileName = "OpenURLFile.apk"
     }
 }
 

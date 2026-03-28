@@ -78,7 +78,7 @@ URL=https://example.com
 - **Language:** Kotlin
 - **UI:** Jetpack Compose with Material 3
 - **Architecture:** Clean Architecture (UI → Domain → Data layers)
-- **Target SDK:** 34
+- **Target SDK:** 35
 - **Min SDK:** 24
 
 ## Project Structure
