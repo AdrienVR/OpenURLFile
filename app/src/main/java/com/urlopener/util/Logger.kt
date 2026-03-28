@@ -4,7 +4,7 @@ import android.util.Log
 import com.urlopener.BuildConfig
 
 object Logger {
-    private const val TAG = "URLFileOpener"
+    private const val TAG = "OpenURLFile"
 
     fun d(message: String) {
         if (BuildConfig.DEBUG) {

@@ -36,7 +36,7 @@ import com.urlopener.data.UrlFileRepository.UriAccessException
 import com.urlopener.domain.UrlParser.EmptyFileException
 import com.urlopener.domain.UrlParser.FileTooLargeException
 import com.urlopener.domain.UrlParser.NoUrlFoundException
-import com.urlopener.ui.theme.URLFileOpenerTheme
+import com.urlopener.ui.theme.OpenURLFileTheme
 import com.urlopener.util.Logger
 
 class MainActivity : ComponentActivity() {
@@ -62,7 +62,7 @@ class MainActivity : ComponentActivity() {
         handleIntentSafe()
 
         setContent {
-            URLFileOpenerTheme {
+            OpenURLFileTheme {
                 Surface(
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
@@ -188,7 +188,7 @@ fun UrlDisplayScreen(
         verticalArrangement = Arrangement.Center
     ) {
         Text(
-            text = "URL File Opener",
+            text = "OpenURLFile",
             style = MaterialTheme.typography.headlineMedium,
             color = MaterialTheme.colorScheme.primary
         )

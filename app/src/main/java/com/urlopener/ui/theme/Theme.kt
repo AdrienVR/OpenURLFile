@@ -54,7 +54,7 @@ private val DarkColorScheme = darkColorScheme(
 )
 
 @Composable
-fun URLFileOpenerTheme(
+fun OpenURLFileTheme(
     darkTheme: Boolean = isSystemInDarkTheme(),
     content: @Composable () -> Unit
 ) {
